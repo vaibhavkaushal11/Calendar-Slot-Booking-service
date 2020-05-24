@@ -16,24 +16,18 @@ function build_calendar($month, $year) {
     // }
     
     
-     // Create array containing abbreviations of days of week.
+   
      $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
 
-     // What is the first day of the month in question?
+     
      $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
 
-     // How many days does this month contain?
      $numberDays = date('t',$firstDayOfMonth);
 
-     // Retrieve some information about the first day of the
-     // month in question.
      $dateComponents = getdate($firstDayOfMonth);
 
-     // What is the name of the month in question?
      $monthName = $dateComponents['month'];
 
-     // What is the index value (0-6) of the first day of the
-     // month in question.
      $dayOfWeek = $dateComponents['wday'];
      if($dayOfWeek==0)
      {
@@ -44,7 +38,6 @@ function build_calendar($month, $year) {
         $dayOfWeek=$dayOfWeek;
      }
 
-     // Create the table tag opener and day headers
      
     $datetoday = date('Y-m-d');
     
@@ -62,23 +55,18 @@ function build_calendar($month, $year) {
         
       $calendar .= "<tr>";
 
-     // Create the calendar headers
 
      foreach($daysOfWeek as $day) {
           $calendar .= "<th  class='header'>$day</th>";
      } 
 
-     // Create the rest of the calendar
-
-     // Initiate the day counter, starting with the 1st.
+     
 
      $currentDay = 1;
 
      $calendar .= "</tr><tr>";
 
-     // The variable $dayOfWeek is used to
-     // ensure that the calendar
-     // display consists of exactly 7 columns.
+  
 
      if ($dayOfWeek > 0) { 
          for($k=0;$k<$dayOfWeek;$k++){
@@ -92,7 +80,7 @@ function build_calendar($month, $year) {
   
      while ($currentDay <= $numberDays) {
 
-          // Seventh column (Saturday) reached. Start a new row.
+          
 
           if ($dayOfWeek == 7) {
 
@@ -138,7 +126,7 @@ else
            
             
           $calendar .="</td>";
-          // Increment counters
+        
  
           $currentDay++;
           $dayOfWeek++;
@@ -147,7 +135,7 @@ else
      
      
 
-     // Complete the row of the last week in month, if necessary
+    
 
      if ($dayOfWeek != 7) { 
      
@@ -205,7 +193,7 @@ function checkSlots($mysqli,$date)
        @media only screen and (max-width: 760px),
         (min-device-width: 802px) and (max-device-width: 1020px) {
 
-            /* Force table to not be like tables anymore */
+            
             table, thead, tbody, th, td, tr {
                 display: block;
 
@@ -217,7 +205,7 @@ function checkSlots($mysqli,$date)
                 display: none;
             }
 
-            /* Hide table headers (but not display: none;, for accessibility) */
+           
             th {
                 position: absolute;
                 top: -9999px;
@@ -229,7 +217,7 @@ function checkSlots($mysqli,$date)
             }
 
             td {
-                /* Behave  like a "row" */
+              
                 border: none;
                 border-bottom: 1px solid #eee;
                 position: relative;
@@ -238,9 +226,7 @@ function checkSlots($mysqli,$date)
 
 
 
-            /*
-		Label the data
-		*/
+         
             td:nth-of-type(1):before {
                 content: "Sunday";
             }
@@ -266,7 +252,7 @@ function checkSlots($mysqli,$date)
 
         }
 
-        /* Smartphones (portrait and landscape) ----------- */
+       
 
         @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
             body {
@@ -275,8 +261,7 @@ function checkSlots($mysqli,$date)
             }
         }
 
-        /* iPads (portrait and landscape) ----------- */
-
+        
         @media only screen and (min-device-width: 802px) and (max-device-width: 1020px) {
             body {
                 width: 495px;
